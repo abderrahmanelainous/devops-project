@@ -1,0 +1,16 @@
+---
+- name: Configure all nodes (common setup + swap)
+  hosts: all
+  gather_facts: yes
+  roles:
+    - common
+    - docker
+
+- name: Configure K3s cluster
+  hosts: all
+  gather_facts: yes
+  serial:
+    - 1
+    - 1
+  roles:
+    - k3s
