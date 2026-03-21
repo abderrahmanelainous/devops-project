@@ -1,0 +1,34 @@
+from flask import Flask, jsonify
+import os
+import socket
+from datetime import datetime
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return jsonify({
+        "message": "DevOps Project API",
+        "status": "running",
+        "version": "1.0.0"
+    })
+
+@app.route('/health')
+def health():
+    return jsonify({
+        "status": "healthy",
+        "timestamp": datetime.utcnow().isoformat(),
+        "hostname": socket.gethostname()
+    })
+
+@app.route('/info')
+def info():
+    return jsonify({
+        "app": "flask-devops-api",
+        "environment": os.getenv("APP_ENV", "production"),
+        "pod_name": os.getenv("POD_NAME", "unknown"),
+        "node_name": os.getenv("NODE_NAME", "unknown")
+    })
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=False)
