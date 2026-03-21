@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flask-config
+  namespace: devops-project
+data:
+  APP_ENV: "production"
