@@ -20,7 +20,7 @@ def test_home(client):
     assert data['author'] == 'Abderrahman Elainous'
 
 def test_health(client):
-    response = client.get('/health')
+    response = client.get('/healthOK')
     assert response.status_code == 200
     data = response.get_json()
     assert data['status'] == 'healthy'

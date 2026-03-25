@@ -15,7 +15,7 @@ def home():
         "description": "Infrastructure DevOps — Master DSBD & IA"
     })
 
-@app.route('/health')
+@app.route('/healthOK')
 def health():
     return jsonify({
         "status": "healthy",
