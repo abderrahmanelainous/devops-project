@@ -18,7 +18,7 @@ def home():
 @app.route('/healthOK')
 def health():
     return jsonify({
-        "status": "healthy",
+        "status": "healthy-",
         "timestamp": datetime.utcnow().isoformat(),
         "hostname": socket.gethostname()
     })
