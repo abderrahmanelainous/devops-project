@@ -10,7 +10,9 @@ def home():
     return jsonify({
         "message": "DevOps Project API",
         "status": "running",
-        "version": "1.0.0"
+        "version": "2.0.0",
+        "author": "Abderrahman Elainous",
+        "description": "Infrastructure DevOps — Master DSBD & IA"
     })
 
 @app.route('/health')
@@ -30,6 +32,17 @@ def info():
         "node_name": os.getenv("NODE_NAME", "unknown")
     })
 
+@app.route('/status')
+def status():
+    return jsonify({
+        "cluster": "K3s on AWS EC2",
+        "nodes": 2,
+        "replicas": 2,
+        "pipeline": "GitHub Actions",
+        "registry": "Docker Hub",
+        "deployed_at": datetime.utcnow().isoformat(),
+        "message": "Deployed automatically via CI/CD pipeline"
+    })
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
-# trigger pipeline

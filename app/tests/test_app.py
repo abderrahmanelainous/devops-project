@@ -16,7 +16,8 @@ def test_home(client):
     assert response.status_code == 200
     data = response.get_json()
     assert data['status'] == 'running'
-    assert data['version'] == '1.0.0'
+    assert data['version'] == '2.0.0'
+    assert data['author'] == 'Abderrahman Elainous'
 
 def test_health(client):
     response = client.get('/health')
@@ -31,3 +32,11 @@ def test_info(client):
     assert response.status_code == 200
     data = response.get_json()
     assert data['app'] == 'flask-devops-api'
+
+def test_status(client):
+    response = client.get('/status')
+    assert response.status_code == 200
+    data = response.get_json()
+    assert data['cluster'] == 'K3s on AWS EC2'
+    assert data['nodes'] == 2
+    assert data['pipeline'] == 'GitHub Actions'
