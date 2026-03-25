@@ -10,7 +10,7 @@ def home():
     return jsonify({
         "message": "DevOps Project API",
         "status": "running",
-        "version": "3.0.0",
+        "version": "4.0.0",
         "author": "Abderrahman Elainous",
         "description": "Infrastructure DevOps — Master DSBD & IA"
     })
@@ -18,7 +18,7 @@ def home():
 @app.route('/healthOK')
 def health():
     return jsonify({
-        "status": "healthy-",
+        "status": "healthy",
         "timestamp": datetime.utcnow().isoformat(),
         "hostname": socket.gethostname()
     })
