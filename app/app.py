@@ -11,7 +11,7 @@ def home():
         "message": "DevOps Project API",
         "status": "running",
         "version": "4.0.0",
-        "author": "Abderrahman Elainous",
+        "author": "Abderrahman",
         "description": "Infrastructure DevOps — Master DSBD & IA"
     })
 

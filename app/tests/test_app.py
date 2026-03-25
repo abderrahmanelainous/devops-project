@@ -17,7 +17,7 @@ def test_home(client):
     data = response.get_json()
     assert data['status'] == 'running'
     assert data['version'] == '4.0.0'
-    assert data['author'] == 'Abderrahman Elainous'
+    assert data['author'] == 'Abderrahman'
 
 def test_health(client):
     response = client.get('/healthOK')
